@@ -55,17 +55,3 @@ ax.legend()
 plt.show()
 
 ```
-
-hello hi
-
-+++
-
-hi again. This is a test
-
-+++
-
-Yet another test
-
-```{code-cell} ipython3
-
-```
