@@ -1,0 +1,9 @@
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Jupyter Book build output
+_build/
+
+# Python cache
+__pycache__/
+*.pyc
