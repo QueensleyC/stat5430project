@@ -7,6 +7,8 @@ chapters:
 - file: markdown
 - file: notebooks
 - file: markdown-notebooks
-- file: contents/law-of-total-prob.md
+- file: contents/probability.md
   sections:
+    - file: contents/law-of-total-prob.md
     - file: contents/probability-integral-transform.md
+    
