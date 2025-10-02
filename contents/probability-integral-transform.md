@@ -12,11 +12,23 @@ kernelspec:
 ---
 
 # Probability Integral Transform (PIT)
-If a continuous random variable X has a well-defined CDF, $F_x$. Take samples from X and plug into the CDF, guess what? They will follow a uniform distributions. This is denoted mathematically as:
+
+- This theorem has two key statements:
+  
+1. If a continuous random variable X has a well-defined CDF, $F_x$. Take samples from X and plug into the CDF, guess what? They will follow a uniform distributions. This is denoted mathematically as:
 
 $$
 U = F_X(X) \sim \text{Uniform}(0,1)
 $$
+
+2. if $U \sim \text{Uniform}(0,1)$ and $F_x$ is the CDF of a random variable $X$ then,
+   $$
+   X = F_x^{-1}(U)
+   $$
+
++++
+
+## First Statement
 
 ```{code-cell} ipython3
 :tags: [hide-input]
@@ -120,3 +132,5 @@ plt.suptitle("Probability Integral Transform: Exponential → Uniform(0,1)")
 plt.tight_layout()
 plt.show()
 ```
+
+## Second Statement
