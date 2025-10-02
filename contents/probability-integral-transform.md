@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# Probability Integral Transform
+# Probability Integral Transform (PIT)
 If a continuous random variable X has a well-defined CDF, $F_x$. Take samples from X and plug into the CDF, guess what? They will follow a uniform distributions. This is denoted mathematically as:
 
 $$
@@ -64,95 +64,59 @@ plt.tight_layout()
 plt.show()
 ```
 
+By the PIT, if we take samples, in this case 10 samples, from the density function of the exponential distribution:
+
 ```{code-cell} ipython3
 :tags: [hide-input]
 
-import numpy as np
-import matplotlib.pyplot as plt
+X_samples_exp = np.random.exponential(size = 10)
+print(X_samples_exp)
+```
+
+and plug them into the CDF (of the same distribution: $F_x(X) = 1-\exp^{-\lambda x}$)
+
+```{code-cell} ipython3
+:tags: [hide-input]
+
+F_x = 1 - np.exp(-lam * X_samples_exp)  
+F_x
+```
+
+We see that the distribution of these 10 samples looks normally distribution
+
+```{code-cell} ipython3
+:tags: [hide-input]
+
+plt.vlines(F_x,0,1);
+```
+
+Increasing the sample size, we have;
+
+```{code-cell} ipython3
+:tags: [hide-input]
 
 # Parameters
 lam = 1.0
-x = np.linspace(0, 5, 200)
+sample_sizes = [100, 1000, 10000]
 
-# Exponential PDF and CDF
-f_x = lam * np.exp(-lam * x)
-F_x = 1 - np.exp(-lam * x)
+fig, axes = plt.subplots(1, 3, figsize=(15, 3))
 
-# Uniform(0,1) PDF
-u = np.linspace(-0.5, 1.5, 200)
-f_u = np.where((u >= 0) & (u <= 1), 1, 0)
+for ax, n in zip(axes, sample_sizes):
+    # Sample from Exp(lam)
+    X_samples_exp = np.random.exponential(scale=1/lam, size=n)
+    
+    # PIT: U = F_X(X) = 1 - e^{-lam * X}
+    F_x = 1 - np.exp(-lam * X_samples_exp)
+    
+    # Plot vertical lines
+    ax.vlines(F_x, 0, 1, color="blue", alpha=0.6, lw=1)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1.1)
+    ax.set_title(f"n = {n}")
+    ax.set_yticks([])
+    ax.set_xlabel("U = F_X(X)")
 
-# Create 3x1 subplot grid
-fig, axes = plt.subplots(3, 1, figsize=(7,10))
-
-# 1. Exponential PDF
-axes[0].plot(x, f_x, color="red", lw=2)
-axes[0].set_title("Exponential PDF ($\\lambda=1$)")
-axes[0].set_ylabel("Density")
-axes[0].grid(True, linestyle="--", alpha=0.6)
-
-# 2. Exponential CDF
-axes[1].plot(x, F_x, color="blue", lw=2)
-axes[1].set_title("Exponential CDF ($\\lambda=1$)")
-axes[1].set_ylabel("Cumulative Probability")
-axes[1].grid(True, linestyle="--", alpha=0.6)
-
-# 3. Uniform(0,1) PDF
-axes[2].plot(u, f_u, color="green", lw=2)
-axes[2].fill_between(u, f_u, alpha=0.3, color="green")
-axes[2].set_title("Uniform(0,1) PDF")
-axes[2].set_xlabel("x")
-axes[2].set_ylabel("Density")
-axes[2].set_ylim(-0.1, 1.2)
-axes[2].grid(True, linestyle="--", alpha=0.6)
-
-# --- Add dashed arrows between subplots ---
-# Coordinates are in figure fraction (0..1, relative to whole canvas)
-arrow1 = FancyArrowPatch((0.5, 0.78), (0.5, 0.62),
-                         transform=fig.transFigure, 
-                         arrowstyle="->", linestyle="--", 
-                         mutation_scale=20, color="black")
-arrow2 = FancyArrowPatch((0.5, 0.47), (0.5, 0.31),
-                         transform=fig.transFigure, 
-                         arrowstyle="->", linestyle="--", 
-                         mutation_scale=20, color="black")
-
-fig.patches.extend([arrow1, arrow2])
-
-# Update function for animation
-def update(frame):
-    # Animate arrow1 growing downwards
-    arrow1.set_positions((0.5, 0.78), (0.5, 0.78 - 0.16 * frame/50))
-    # Animate arrow2 growing downwards
-    arrow2.set_positions((0.5, 0.47), (0.5, 0.47 - 0.16 * frame/50))
-    return arrow1, arrow2
-
-ani = FuncAnimation(fig, update, frames=50, interval=100, blit=True)
-
+plt.suptitle("Probability Integral Transform: Exponential → Uniform(0,1)")
 plt.tight_layout()
 plt.show()
-```
-
-```{code-cell} ipython3
-:tags: [hide-input]
-
-
-```
-
-```{code-cell} ipython3
-:tags: [hide-input]
-
-X_samples_exp = np.random.exponential(size = 10000)
-```
-
-```{code-cell} ipython3
-:tags: [hide-input]
-
-plt.vlines(1 - np.exp(-lam * X_samples_exp),0,1);
-```
-
-```{code-cell} ipython3
-:tags: [hide-input]
-
-
 ```
