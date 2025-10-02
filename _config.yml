@@ -28,10 +28,10 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
+  code_folding: hide
   use_issues_button: true
   use_repository_button: true
   use_toggle_button: true
-  use_hide_input: true
 
 parse:
   myst_enable_extensions:
