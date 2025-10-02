@@ -2,8 +2,8 @@
 echo ==============================
 echo   Jupyter Book Automation
 echo ==============================
-echo 1. Build the book
-echo 2. Build and Open the book
+echo 1. Build and Open the book
+echo 2. AutoHide + Sync + Build + Open
 echo 3. Open the book locally
 echo 4. Push to GitHub Pages
 echo 5. Do all (Build + Open + Push)
@@ -22,7 +22,11 @@ jupyter-book build .
 goto end
 
 :buildopen
-echo 📘 Building Jupyter Book...
+echo Running auto-hide...
+python auto_tag_hide_code.py
+echo Running sync...
+call scripts\sync-ipynb_myst.bat
+echo Building book...
 jupyter-book build .
 echo 🌐 Opening book locally...
 start _build/html/index.html
