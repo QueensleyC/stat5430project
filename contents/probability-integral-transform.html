@@ -386,6 +386,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-statement">First Statement</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-statement">Second Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion:</a></li>
 </ul>
             </nav>
         </div>
@@ -409,11 +410,13 @@ document.write(`
 \[
 U = F_X(X) \sim \text{Uniform}(0,1)
 \]</div>
-<ol class="arabic simple" start="2">
-<li><p>if <span class="math notranslate nohighlight">\(U \sim \text{Uniform}(0,1)\)</span> and <span class="math notranslate nohighlight">\(F_x\)</span> is the CDF of a random variable <span class="math notranslate nohighlight">\(X\)</span> then,
-$<span class="math notranslate nohighlight">\(
-X = F_x^{-1}(U)
-\)</span>$</p></li>
+<ol class="arabic" start="2">
+<li><p>if <span class="math notranslate nohighlight">\(U \sim \text{Uniform}(0,1)\)</span> and <span class="math notranslate nohighlight">\(F_x\)</span> is the CDF of a random variable <span class="math notranslate nohighlight">\(X\)</span> then,</p>
+<div class="math notranslate nohighlight">
+\[
+   X = F_x^{-1}(U)
+   \]</div>
+</li>
 </ol>
 <section id="first-statement">
 <h2>First Statement<a class="headerlink" href="#first-statement" title="Link to this heading">#</a></h2>
@@ -479,7 +482,7 @@ X = F_x^{-1}(U)
 <img alt="../_images/8b235b61d1e14e405e886c2cbcba3ab0be4c42a1a70792cd3969fd8a79e88c95.png" src="../_images/8b235b61d1e14e405e886c2cbcba3ab0be4c42a1a70792cd3969fd8a79e88c95.png" />
 </div>
 </div>
-<p>By the PIT, if we take samples, in this case 10 samples, from the density function of the exponential distribution:</p>
+<p>By the PIT, if we take samples, in this case, 10 samples, from the probability density function of the exponential distribution:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -494,8 +497,8 @@ X = F_x^{-1}(U)
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.85733401 0.50495848 0.53628191 2.0402081  0.39629298 0.42127436
- 0.47247802 1.09833693 0.00443456 0.1632217 ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.22482306 1.18709821 0.25837355 2.21543639 0.60085258 1.09113697
+ 0.2429824  2.38092832 1.29971923 0.98157294]
 </pre></div>
 </div>
 </div>
@@ -515,13 +518,13 @@ X = F_x^{-1}(U)
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.57570827, 0.39646936, 0.415081  , 0.86999835, 0.32719046,
-       0.34378996, 0.37654458, 0.66657487, 0.00442474, 0.15059715])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.20134248, 0.69489467, 0.22769331, 0.89089411, 0.45165607,
+       0.66416556, 0.21571468, 0.9075353 , 0.72739168, 0.62527878])
 </pre></div>
 </div>
 </div>
 </div>
-<p>We see that the distribution of these 10 samples looks normally distribution</p>
+<p>We see that the distribution of these 10 samples looks uniformly distribution</p>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -535,7 +538,7 @@ X = F_x^{-1}(U)
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/9df58ec8f93369370b4ef292931f56662e82cc6efd92466f6f71b7ef436dd8df.png" src="../_images/9df58ec8f93369370b4ef292931f56662e82cc6efd92466f6f71b7ef436dd8df.png" />
+<img alt="../_images/b0f7c7ed07430666f97fe2c3b2294a624e32152ef9567f6df3297f7d6fbc6f3c.png" src="../_images/b0f7c7ed07430666f97fe2c3b2294a624e32152ef9567f6df3297f7d6fbc6f3c.png" />
 </div>
 </div>
 <p>Increasing the sample size, we have;</p>
@@ -575,12 +578,105 @@ X = F_x^{-1}(U)
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/5d0d89ea9810a5b82cbf10de1fbab0a8eea2c4eab72aa93767e8b2bffa10c401.png" src="../_images/5d0d89ea9810a5b82cbf10de1fbab0a8eea2c4eab72aa93767e8b2bffa10c401.png" />
+<img alt="../_images/30d3b2be412ed81e835738221d511258bec03620886a20649df79a5f79fad215.png" src="../_images/30d3b2be412ed81e835738221d511258bec03620886a20649df79a5f79fad215.png" />
 </div>
 </div>
 </section>
 <section id="second-statement">
 <h2>Second Statement<a class="headerlink" href="#second-statement" title="Link to this heading">#</a></h2>
+<p>If we have a uniform distribution, we can get any distribution as long at the CDF of that distribution has an inverse (A quantile function)</p>
+<p>First, generate a uniform distribution</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">lam</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="c1"># Step 1: Generate uniform(0,1)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Some of the generated number (U):&quot;</span><span class="p">,</span> <span class="n">U</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">U</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Some of the generated number (U): [0.37637059 0.80792428 0.43293396 0.44288138 0.31082667 0.455962
+ 0.13757701 0.13658464 0.05017887 0.66177579]
+</pre></div>
+</div>
+<img alt="../_images/795126bf1753c0a02b11e1eeb394193b54d7985b2375db8f9b4c3b53d756d30d.png" src="../_images/795126bf1753c0a02b11e1eeb394193b54d7985b2375db8f9b4c3b53d756d30d.png" />
+</div>
+</div>
+<p>If we plug the above values into the quantile function (inverse of a CDF) of an exponential distribution:</p>
+<div class="math notranslate nohighlight">
+\[
+X = -\frac{\ln(1 - U)}{\lambda}
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\lambda\)</span> = 1</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 2: Apply inverse CDF of exponential</span>
+<span class="n">X</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">U</span><span class="p">)</span> <span class="o">/</span> <span class="n">lam</span>
+<span class="n">X</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.47219898, 1.64986563, 0.56727951, 0.5849771 , 0.37226247,
+       0.60873618, 0.14800942, 0.14685941, 0.0514816 , 1.08404625])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The values have now been converted to what is seen above.</p>
+<p>Now, let us plot the distribution of these values against the pdf of the exponential distribution:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">pdf_theoretical</span> <span class="o">=</span> <span class="n">lam</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">lam</span> <span class="o">*</span> <span class="n">x_vals</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Simulated X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">pdf_theoretical</span><span class="p">,</span> <span class="s2">&quot;r--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Theoretical PDF: λe^{-λx}&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Inverse Probability Integral Transform (Uniform → Exponential)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/bceb9d35c8d44f133ac44affa3ec767f8f19286b7731d4730cccb152ab09e4e4.png" src="../_images/bceb9d35c8d44f133ac44affa3ec767f8f19286b7731d4730cccb152ab09e4e4.png" />
+</div>
+</div>
+<p>We can see that the simulated values gotten from the uniform distribution and plugged into the quantile function of the exponential distribuion follows the pdf of an exponential distribution.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion:<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>We went from an exponential distribution to a uniform distribution, and then from a uniform distribution to an exponential distribution.</p>
 </section>
 </section>
 
@@ -641,6 +737,7 @@ X = F_x^{-1}(U)
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-statement">First Statement</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-statement">Second Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion:</a></li>
 </ul>
   </nav></div>
 
