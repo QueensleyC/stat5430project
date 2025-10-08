@@ -22,6 +22,7 @@ U = F_X(X) \sim \text{Uniform}(0,1)
 $$
 
 2. if $U \sim \text{Uniform}(0,1)$ and $F_x$ is the CDF of a random variable $X$ then,
+
    $$
    X = F_x^{-1}(U)
    $$
@@ -76,7 +77,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-By the PIT, if we take samples, in this case 10 samples, from the density function of the exponential distribution:
+By the PIT, if we take samples, in this case, 10 samples, from the probability density function of the exponential distribution:
 
 ```{code-cell} ipython3
 :tags: [hide-input]
@@ -94,7 +95,7 @@ F_x = 1 - np.exp(-lam * X_samples_exp)
 F_x
 ```
 
-We see that the distribution of these 10 samples looks normally distribution
+We see that the distribution of these 10 samples looks uniformly distribution
 
 ```{code-cell} ipython3
 :tags: [hide-input]
@@ -134,3 +135,73 @@ plt.show()
 ```
 
 ## Second Statement
+
++++
+
+If we have a uniform distribution, we can get any distribution as long at the CDF of that distribution has an inverse (A quantile function)
+
++++
+
+First, generate a uniform distribution 
+
+```{code-cell} ipython3
+:tags: [hide-input]
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+lam = 1.0
+n = 1000
+
+# Step 1: Generate uniform(0,1)
+U = np.random.uniform(0,1,n)
+
+print("Some of the generated number (U):", U[:10])
+plt.hist(U);
+```
+
+If we plug the above values into the quantile function (inverse of a CDF) of an exponential distribution:
+
+$$
+X = -\frac{\ln(1 - U)}{\lambda}
+$$
+
+Here, $\lambda$ = 1
+
+```{code-cell} ipython3
+:tags: [hide-input]
+
+# Step 2: Apply inverse CDF of exponential
+X = -np.log(1 - U) / lam
+X[:10]
+```
+
+The values have now been converted to what is seen above.
+
+Now, let us plot the distribution of these values against the pdf of the exponential distribution:
+
+```{code-cell} ipython3
+:tags: [hide-input]
+
+x_vals = np.linspace(0, 6, 200)
+pdf_theoretical = lam * np.exp(-lam * x_vals)
+
+plt.figure(figsize=(7,4))
+plt.hist(X, bins=40, density=True, alpha=0.6, color="skyblue", edgecolor="black", label="Simulated X")
+plt.plot(x_vals, pdf_theoretical, "r--", lw=2, label="Theoretical PDF: λe^{-λx}")
+plt.title("Inverse Probability Integral Transform (Uniform → Exponential)")
+plt.xlabel("x")
+plt.ylabel("Density")
+plt.legend()
+plt.grid(True, linestyle="--", alpha=0.6)
+plt.show()
+```
+
+We can see that the simulated values gotten from the uniform distribution and plugged into the quantile function of the exponential distribuion follows the pdf of an exponential distribution. 
+
+
++++
+
+## Conclusion:
+
+We went from an exponential distribution to a uniform distribution, and then from a uniform distribution to an exponential distribution.
