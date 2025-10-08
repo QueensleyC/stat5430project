@@ -19,6 +19,8 @@ if "%choice%"=="5" goto all
 :build
 echo 📘 Building Jupyter Book...
 jupyter-book build .
+echo 🌐 Opening book locally...
+start _build/html/index.html
 goto end
 
 :buildopen
