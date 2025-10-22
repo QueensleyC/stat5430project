@@ -19,4 +19,4 @@ I will basically write about all that i have learnt
 - write scripts
 - set up jupyter book
 - set up github pages
-- 
+- how to make diagrams using myst markdown

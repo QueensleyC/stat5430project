@@ -142,7 +142,7 @@ If we have a uniform distribution, we can get any distribution as long at the CD
 
 +++
 
-First, generate a uniform distribution 
+First, generate a uniform distribution
 
 ```{code-cell} ipython3
 :tags: [hide-input]
@@ -197,8 +197,7 @@ plt.grid(True, linestyle="--", alpha=0.6)
 plt.show()
 ```
 
-We can see that the simulated values gotten from the uniform distribution and plugged into the quantile function of the exponential distribuion follows the pdf of an exponential distribution. 
-
+We can see that the simulated values gotten from the uniform distribution and plugged into the quantile function of the exponential distribuion follows the pdf of an exponential distribution.
 
 +++
 

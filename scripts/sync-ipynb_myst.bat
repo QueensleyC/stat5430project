@@ -1,13 +1,12 @@
 @echo off
 echo ==============================
-echo   "Sync ipynb -> MyST Markdown"
+echo   "Sync MyST Markdown -> ipynb"
 echo ==============================
 
-REM Loop over all .ipynb files in notebooks/ (relative to scripts/)
-for %%f in ("C:\Users\ebyqu\stat5430project\notebooks\*.ipynb") do (
+REM Loop over all .md files in contents/ (relative to scripts/)
+for %%f in ("C:\Users\ebyqu\stat5430project\contents\*.md") do (
     echo Converting %%f ...
-    jupytext --to myst "%%f" -o "C:\Users\ebyqu\stat5430project\contents\%%~nf.md"
+    jupytext --to notebook "%%f" -o "C:\Users\ebyqu\stat5430project\notebooks\%%~nf.ipynb"
 )
 
-
-echo Sync complete!
+echo ✅ Sync complete!

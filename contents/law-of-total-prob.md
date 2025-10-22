@@ -23,7 +23,7 @@ $$
 
 **Intuition:** Say you go to the mall to buy a trouser. The probability you buy a trouser depends on the colour of the trouser. Let us say the trouser colours come in 4 colours: black, blue, grey, and orange. The event that you buy a trouser is denoted by the red oval, and each trouser colour is represented by its colour below.
 
-```{code-cell} ipython3
+```{code-cell}
 :tags: [hide-input, hide-code]
 
 import matplotlib.pyplot as plt

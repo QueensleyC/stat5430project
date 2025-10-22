@@ -1,3 +1,6 @@
 jupyter-book
 matplotlib
 numpy
+
+How to run:
+- run from the scripts/deploy

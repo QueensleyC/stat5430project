@@ -45,3 +45,7 @@ parse:
     - replacements
     - smartquotes
 
+sphinx:
+  extra_extensions:
+    - sphinx_togglebutton
+
