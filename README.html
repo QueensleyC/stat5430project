@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>stat5430Project &#8212; My sample book</title>
+    <title>SeeingStats &#8212; SeeingStats</title>
   
   
   
@@ -153,8 +153,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="SeeingStats - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="SeeingStats - Home"/>`);</script>
   
   
 </a></div>
@@ -183,7 +183,12 @@
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
-<li class="toctree-l1"><a class="reference internal" href="law-of-total-prob.html">Law of Total Probability</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="contents/probability.html">Probability: General Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="contents/law-of-total-prob.html">Law of Total Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/probability-integral-transform.html">Probability Integral Transform (PIT)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="contents/linear-model-workflow.html">Linear Model Workflow</a></li>
 </ul>
 
     </div>
@@ -356,7 +361,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -367,11 +374,27 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>stat5430Project</h1>
+    <h1>SeeingStats</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-set-up-your-pc-to-run-this-project">🧰 How to Set Up Your PC to Run This Project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-conda-environment">1️⃣ Create a New Conda Environment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-every-time-you-create-a-new-ipynb-file">⚠️ Important: Every Time You Create a New <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-format-overview">🧾 File Format Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-file-types-summary">📘 Project File Types Summary</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -381,8 +404,99 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="stat5430project">
-<h1>stat5430Project<a class="headerlink" href="#stat5430project" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="seeingstats">
+<h1>SeeingStats<a class="headerlink" href="#seeingstats" title="Link to this heading">#</a></h1>
+<section id="how-to-set-up-your-pc-to-run-this-project">
+<h2>🧰 How to Set Up Your PC to Run This Project<a class="headerlink" href="#how-to-set-up-your-pc-to-run-this-project" title="Link to this heading">#</a></h2>
+<section id="create-a-new-conda-environment">
+<h3>1️⃣ Create a New Conda Environment<a class="headerlink" href="#create-a-new-conda-environment" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># (a) Create the environment</span>
+conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>name_of_environment<span class="w"> </span><span class="nv">python</span><span class="o">=</span>python_version<span class="w"> </span>-y
+
+<span class="c1"># (b) Activate it</span>
+conda<span class="w"> </span>activate<span class="w"> </span>name_of_environment
+
+<span class="c1"># (c) Install dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>jupyter<span class="w"> </span>jupyterlab<span class="w"> </span>jupyter-book<span class="w"> </span>jupytext<span class="w"> </span>myst-nb<span class="w"> </span>pre-commit<span class="w"> </span>nbformat<span class="w"> </span>nbconvert
+</pre></div>
+</div>
+<blockquote>
+<div><p>💡 <strong>Alternatively:</strong><br />
+If you only want to set up <strong>JupyterBook + GitHub Pages</strong> on your system,<br />
+follow this short tutorial:<br />
+<a class="reference external" href="https://youtu.be/lZ2FHTkyaMU?si=SvgEUapWUt_RjOIX">🎥 YouTube: How to Set Up JupyterBook and Deploy to GitHub Pages</a></p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="important-every-time-you-create-a-new-ipynb-file">
+<h2>⚠️ Important: Every Time You Create a New <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> File<a class="headerlink" href="#important-every-time-you-create-a-new-ipynb-file" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Most code lives in the <strong><code class="docutils literal notranslate"><span class="pre">notebooks/</span></code></strong> folder (as <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files).</p></li>
+<li><p>However, these notebooks are <strong>converted to MyST Markdown (<code class="docutils literal notranslate"><span class="pre">.md</span></code>)</strong> files that live in the <strong><code class="docutils literal notranslate"><span class="pre">contents/</span></code></strong> folder.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.md</span></code> version is what gets <strong>deployed to GitHub Pages</strong>.</p></li>
+</ul>
+<blockquote>
+<div><p>⚠️ <strong>Note:</strong>  The MyST file and the notebook <strong>must have the exact same filename</strong>.</p>
+</div></blockquote>
+<p>Because of this, whenever you create a new <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file,<br />
+you <strong>must also create and link</strong> a matching <code class="docutils literal notranslate"><span class="pre">.md</span></code> (MyST) version in the <code class="docutils literal notranslate"><span class="pre">contents/</span></code> folder, using the example code below:</p>
+<p>From the <strong>root</strong> of your project, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupytext<span class="w"> </span>--set-formats<span class="w"> </span><span class="s2">&quot;notebooks//ipynb,contents//md:myst&quot;</span><span class="w"> </span>--sync<span class="w"> </span>notebooks/notebook_name.ipynb
+</pre></div>
+</div>
+<blockquote>
+<div><p>📝 <strong>Note:</strong><br />
+Replace <code class="docutils literal notranslate"><span class="pre">notebook_name</span></code> with the <strong>actual name</strong> of your notebook (without spaces).<br />
+For example, if your notebook is called <code class="docutils literal notranslate"><span class="pre">simulation-notes.ipynb</span></code>, the command becomes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupytext<span class="w"> </span>--set-formats<span class="w"> </span><span class="s2">&quot;notebooks//ipynb,contents//md:myst&quot;</span><span class="w"> </span>--sync<span class="w"> </span>notebooks/simulation-notes.ipynb
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="file-format-overview">
+<h2>🧾 File Format Overview<a class="headerlink" href="#file-format-overview" title="Link to this heading">#</a></h2>
+<p>In this project, some topics are created as <strong>Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>)</strong> and then <strong>converted to MyST Markdown (<code class="docutils literal notranslate"><span class="pre">.md</span></code>)</strong>,<br />
+while others are written directly as <strong>pure MyST Markdown</strong> files.</p>
+<ul class="simple">
+<li><p>The pages under <strong>“.ipynb → .md”</strong> were first developed as notebooks (to include executable code, visualizations, or analysis),<br />
+and then paired or converted into MyST format for JupyterBook.</p></li>
+<li><p>The pages under <strong>“.md only”</strong> were written directly in MyST Markdown without any corresponding notebook,<br />
+usually because they are text-based (e.g., documentation, explanations, or summaries).</p></li>
+</ul>
+<hr class="docutils" />
+<section id="project-file-types-summary">
+<h3>📘 Project File Types Summary<a class="headerlink" href="#project-file-types-summary" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>.ipynb → .md (Paired)</strong></p></th>
+<th class="head"><p><strong>.md Only (Text-Based)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">law-of-total-prob</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">linear-model-workflow</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">probability-integral-transform</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">probability</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>📝 <strong>Note:</strong></p>
+<ul class="simple">
+<li><p>Files in the <strong>first column</strong> live in the <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code> folder (for <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) and the <code class="docutils literal notranslate"><span class="pre">contents/</span></code> folder (for <code class="docutils literal notranslate"><span class="pre">.md</span></code>).</p></li>
+<li><p>Files in the <strong>second column</strong> exist <strong>only</strong> in the <code class="docutils literal notranslate"><span class="pre">contents/</span></code> folder.</p></li>
+<li><p>Each new topic should follow <strong>one format or the other</strong>, not both.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -421,6 +535,29 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-set-up-your-pc-to-run-this-project">🧰 How to Set Up Your PC to Run This Project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-conda-environment">1️⃣ Create a New Conda Environment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-every-time-you-create-a-new-ipynb-file">⚠️ Important: Every Time You Create a New <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-format-overview">🧾 File Format Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-file-types-summary">📘 Project File Types Summary</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

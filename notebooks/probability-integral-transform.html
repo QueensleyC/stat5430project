@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Probability Integral Transform (PIT) &#8212; My sample book</title>
+    <title>Probability Integral Transform (PIT) &#8212; SeeingStats</title>
   
   
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="SeeingStats - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="SeeingStats - Home"/>`);</script>
   
   
 </a></div>
@@ -190,6 +190,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../contents/probability-integral-transform.html">Probability Integral Transform (PIT)</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/linear_model_workflow.html">Linear Model Workflow</a></li>
+
+
 </ul>
 
     </div>
@@ -498,8 +501,8 @@ U = F_X(X) \sim \text{Uniform}(0,1)
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.11647858 1.15715836 0.2867557  0.31319667 1.7649388  0.91597006
- 0.38409756 1.20143495 0.28188624 0.5077878 ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.36430125 1.32475471 3.83302431 1.69622606 0.23036656 0.50244803
+ 0.24953584 0.62754529 0.57577295 0.53170038]
 </pre></div>
 </div>
 </div>
@@ -519,8 +522,8 @@ U = F_X(X) \sim \text{Uniform}(0,1)
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.10995084, 0.68562174, 0.2493049 , 0.26889388, 0.82880274,
-       0.59987171, 0.31893502, 0.69923768, 0.24564051, 0.39817453])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.96541383, 0.73413183, 0.97835594, 0.81662574, 0.20575759,
+       0.39495233, 0.22083764, 0.46609923, 0.4377299 , 0.41239503])
 </pre></div>
 </div>
 </div>
@@ -539,7 +542,7 @@ U = F_X(X) \sim \text{Uniform}(0,1)
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/8779afa4b015c5f36d9fe98745d37041293cda53415c15b53d00a76ba04be11f.png" src="../_images/8779afa4b015c5f36d9fe98745d37041293cda53415c15b53d00a76ba04be11f.png" />
+<img alt="../_images/bd6da001c759d735378a739383b3e9c11f55ff691981b6452cbcd6d350218649.png" src="../_images/bd6da001c759d735378a739383b3e9c11f55ff691981b6452cbcd6d350218649.png" />
 </div>
 </div>
 <p>Increasing the sample size, we have;</p>
@@ -579,7 +582,7 @@ U = F_X(X) \sim \text{Uniform}(0,1)
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/7ca80159886f942e5b2c25b3fafea02e05093806d4afdb079e6c96a9995a17f6.png" src="../_images/7ca80159886f942e5b2c25b3fafea02e05093806d4afdb079e6c96a9995a17f6.png" />
+<img alt="../_images/5dbdcb861d1fddd98c1d8f75825f71545b1dc4bcd9a3e0e26ba3afc6ed29a7b6.png" src="../_images/5dbdcb861d1fddd98c1d8f75825f71545b1dc4bcd9a3e0e26ba3afc6ed29a7b6.png" />
 </div>
 </div>
 </section>
@@ -610,11 +613,11 @@ U = F_X(X) \sim \text{Uniform}(0,1)
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Some of the generated number (U): [0.42712171 0.13522361 0.98721801 0.98916592 0.4666728  0.27957933
- 0.7215559  0.27755579 0.51699259 0.34492949]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Some of the generated number (U): [0.1413964  0.29660157 0.3119205  0.53977205 0.95120182 0.82740328
+ 0.68948549 0.4163916  0.28454032 0.91252305]
 </pre></div>
 </div>
-<img alt="../_images/3bb14c318456684d2e7996de8c1e11a44055c1499200d7d6010044aa25aaa313.png" src="../_images/3bb14c318456684d2e7996de8c1e11a44055c1499200d7d6010044aa25aaa313.png" />
+<img alt="../_images/92906a4271e0a53efc4df942bcd35c8748b683c9c0ceb1c94e35a67565e8605d.png" src="../_images/92906a4271e0a53efc4df942bcd35c8748b683c9c0ceb1c94e35a67565e8605d.png" />
 </div>
 </div>
 <p>If we plug the above values into the quantile function (inverse of a CDF) of an exponential distribution:</p>
@@ -638,8 +641,8 @@ X = -\frac{\ln(1 - U)}{\lambda}
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.55708199, 0.14528431, 4.35971849, 4.52505822, 0.62862017,
-       0.32791997, 1.27853794, 0.32511508, 0.72772329, 0.42301239])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.15244793, 0.35183178, 0.37385089, 0.77603337, 3.02006221,
+       1.75679748, 1.16952464, 0.53852507, 0.33483003, 2.43637997])
 </pre></div>
 </div>
 </div>
@@ -670,7 +673,7 @@ X = -\frac{\ln(1 - U)}{\lambda}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/51139f146922c88b72596242705187051b7321a25b74b136b800627e7a31f5f0.png" src="../_images/51139f146922c88b72596242705187051b7321a25b74b136b800627e7a31f5f0.png" />
+<img alt="../_images/0ac101f1b3f2a242406458f5dd61d91f76df5e9f19ffd35dcde5ef32bfeb590f.png" src="../_images/0ac101f1b3f2a242406458f5dd61d91f76df5e9f19ffd35dcde5ef32bfeb590f.png" />
 </div>
 </div>
 <p>We can see that the simulated values gotten from the uniform distribution and plugged into the quantile function of the exponential distribuion follows the pdf of an exponential distribution.</p>
