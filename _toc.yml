@@ -11,4 +11,7 @@ chapters:
   sections:
     - file: contents/law-of-total-prob.md
     - file: contents/probability-integral-transform.md
+- file: contents/linear-model-workflow.md
+
+  
     
