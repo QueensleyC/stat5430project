@@ -33,8 +33,9 @@ html:
   use_repository_button: true
   use_toggle_button: true
 
-parse:
-  myst_enable_extensions:
+
+myst:
+  enable_extensions:
     - amsmath
     - colon_fence
     - deflist
@@ -44,4 +45,9 @@ parse:
     - linkify
     - replacements
     - smartquotes
+    - mermaid
+
+sphinx:
+  extra_extensions:
+    - sphinxcontrib.mermaid  
 
