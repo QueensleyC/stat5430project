@@ -1,4 +1,4 @@
-# Welcome to your SeeingStats
+# Welcome to SeeingStats
 
 Welcome! SeeingStats is your space to explore statistics in a clear, visual, and hands-on way.
 This book was created to help you understand statistics by seeing it, not just memorizing formulas.
