@@ -21,17 +21,25 @@ flowchart LR
     C --> D[Two-Way ANOVA]
     D --> E[ANCOVA]
 ```
-This may come as a suprise but all the steps above ARE regression. Yes, ANOVA and ANCOVA are linear regression.
+This may come as a surprise, but all of the models shown above are forms of linear regression. Yes, ANOVA and ANCOVA are linear regression.
 
-- ANOVA looks at means of groups, regression looks at means too (conditional mean to be specific but means all the same!)
-- Regression cares about multicollinearity, ANOVA does too. That is why the groups in ANOVA have to be independent. When the groups are not independent treatments like block designs are administered.
+- ANOVA compares group means, and regression also models conditional means. The structure is the same.
+
+- Regression requires predictors to be independent, and so does ANOVA (which is why ANOVA assumes treatment groups are independent). When the groups are not independent treatments like block designs are administered.
+
+So, if we group all of these models into broad categories, we get the following structure that we can call a linear model taxonomy:
+
+## Linear Model Taxonomy
 
 ```{mermaid}
 flowchart LR
 
+    %% LEFT SIDE: SIMPLE LINEAR REGRESSION
     subgraph A[Simple Linear Regression]
+        A0[One Predictor, One Response]
     end
 
+    %% RIGHT SIDE: MULTIPLE LINEAR REGRESSION (with ANOVA variants)
     subgraph B[Multiple Linear Regression]
         B1[One-Way ANOVA]
         B2[Two-Way ANOVA]
@@ -41,9 +49,13 @@ flowchart LR
 
     A --> B
 
+    %% COOL-BLUE BACKGROUNDS
+    style A fill:#e8f0fe,stroke:#b7c8f0,stroke-width:1px
+    style B fill:#d2e3fc,stroke:#9ab6ec,stroke-width:1px
 ```
 
-## High Level View of Multiple Linear Regression Workflow
+
+## Multiple Linear Regression Workflow (High-Level View)
 ```{mermaid}
 %%{init: {'themeVariables': { 'fontSize': '20px', 'fontFamily': 'Source Sans Pro' }}}%%
 flowchart LR
@@ -59,6 +71,7 @@ flowchart LR
     style D fill:#c0a988,stroke:#9e875e,stroke-width:1px
 ```
 
+## Detailed Multiple Linear Regression Workflow
 ```{mermaid}
 flowchart LR
 
@@ -74,7 +87,7 @@ flowchart LR
     subgraph B[🧮 Model Estimation]
         B1[Fit the model]
         B2[Compute regression coefficients]
-        B3[Goodness-of-fit tests]
+        B3[Goodness-of-fit checks]
         B1 --> B2 --> B3
     end
 

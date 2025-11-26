@@ -160,8 +160,8 @@ window.addEventListener("load", () => mermaid.run());
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="SeeingStats - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="SeeingStats - Home"/>`);</script>
+    <img src="../_static/logo-4-crop.jpeg" class="logo__image only-light" alt="SeeingStats - Home"/>
+    <script>document.write(`<img src="../_static/logo-4-crop.jpeg" class="logo__image only-dark" alt="SeeingStats - Home"/>`);</script>
   
   
 </a></div>
@@ -182,14 +182,11 @@ window.addEventListener("load", () => mermaid.run());
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Welcome to SeeingStats
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="probability.html">Probability: General Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="law-of-total-prob.html">Law of Total Probability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="probability-integral-transform.html">Probability Integral Transform (PIT)</a></li>
@@ -239,50 +236,18 @@ window.addEventListener("load", () => mermaid.run());
 <div class="article-header-buttons">
 
 
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
+<a href="https://github.com/QueensleyC/stat5430project" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
    title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontents/linear-model-workflow.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
 
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
 
 
 
@@ -391,7 +356,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-view-of-multiple-linear-regression-workflow">High Level View of Multiple Linear Regression Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-model-taxonomy">Linear Model Taxonomy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-linear-regression-workflow-high-level-view">Multiple Linear Regression Workflow (High-Level View)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-multiple-linear-regression-workflow">Detailed Multiple Linear Regression Workflow</a></li>
 </ul>
             </nav>
         </div>
@@ -412,17 +379,23 @@ flowchart LR
     B --&gt; C[One-Way ANOVA]
     C --&gt; D[Two-Way ANOVA]
     D --&gt; E[ANCOVA]
-    </pre><p>This may come as a suprise but all the steps above ARE regression. Yes, ANOVA and ANCOVA are linear regression.</p>
+    </pre><p>This may come as a surprise, but all of the models shown above are forms of linear regression. Yes, ANOVA and ANCOVA are linear regression.</p>
 <ul class="simple">
-<li><p>ANOVA looks at means of groups, regression looks at means too (conditional mean to be specific but means all the same!)</p></li>
-<li><p>Regression cares about multicollinearity, ANOVA does too. That is why the groups in ANOVA have to be independent. When the groups are not independent treatments like block designs are administered.</p></li>
+<li><p>ANOVA compares group means, and regression also models conditional means. The structure is the same.</p></li>
+<li><p>Regression requires predictors to be independent, and so does ANOVA (which is why ANOVA assumes treatment groups are independent). When the groups are not independent treatments like block designs are administered.</p></li>
 </ul>
+<p>So, if we group all of these models into broad categories, we get the following structure that we can call a linear model taxonomy:</p>
+<section id="linear-model-taxonomy">
+<h2>Linear Model Taxonomy<a class="headerlink" href="#linear-model-taxonomy" title="Link to this heading">#</a></h2>
 <pre  class="mermaid">
         flowchart LR
 
+    %% LEFT SIDE: SIMPLE LINEAR REGRESSION
     subgraph A[Simple Linear Regression]
+        A0[One Predictor, One Response]
     end
 
+    %% RIGHT SIDE: MULTIPLE LINEAR REGRESSION (with ANOVA variants)
     subgraph B[Multiple Linear Regression]
         B1[One-Way ANOVA]
         B2[Two-Way ANOVA]
@@ -432,8 +405,12 @@ flowchart LR
 
     A --&gt; B
 
-    </pre><section id="high-level-view-of-multiple-linear-regression-workflow">
-<h2>High Level View of Multiple Linear Regression Workflow<a class="headerlink" href="#high-level-view-of-multiple-linear-regression-workflow" title="Link to this heading">#</a></h2>
+    %% COOL-BLUE BACKGROUNDS
+    style A fill:#e8f0fe,stroke:#b7c8f0,stroke-width:1px
+    style B fill:#d2e3fc,stroke:#9ab6ec,stroke-width:1px
+    </pre></section>
+<section id="multiple-linear-regression-workflow-high-level-view">
+<h2>Multiple Linear Regression Workflow (High-Level View)<a class="headerlink" href="#multiple-linear-regression-workflow-high-level-view" title="Link to this heading">#</a></h2>
 <pre  class="mermaid">
         %%{init: {'themeVariables': { 'fontSize': '20px', 'fontFamily': 'Source Sans Pro' }}}%%
 flowchart LR
@@ -447,7 +424,10 @@ flowchart LR
     style B fill:#e6d5b8,stroke:#c3ad83,stroke-width:1px
     style C fill:#d7c4a3,stroke:#b79d72,stroke-width:1px
     style D fill:#c0a988,stroke:#9e875e,stroke-width:1px
-    </pre><pre  class="mermaid">
+    </pre></section>
+<section id="detailed-multiple-linear-regression-workflow">
+<h2>Detailed Multiple Linear Regression Workflow<a class="headerlink" href="#detailed-multiple-linear-regression-workflow" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
         flowchart LR
 
     %% Forced starting point
@@ -462,7 +442,7 @@ flowchart LR
     subgraph B[🧮 Model Estimation]
         B1[Fit the model]
         B2[Compute regression coefficients]
-        B3[Goodness-of-fit tests]
+        B3[Goodness-of-fit checks]
         B1 --&gt; B2 --&gt; B3
     end
 
@@ -551,7 +531,9 @@ flowchart LR
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-view-of-multiple-linear-regression-workflow">High Level View of Multiple Linear Regression Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-model-taxonomy">Linear Model Taxonomy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-linear-regression-workflow-high-level-view">Multiple Linear Regression Workflow (High-Level View)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-multiple-linear-regression-workflow">Detailed Multiple Linear Regression Workflow</a></li>
 </ul>
   </nav></div>
 
@@ -576,7 +558,7 @@ By Queensley Chinedu
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
