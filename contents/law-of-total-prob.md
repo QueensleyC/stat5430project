@@ -47,7 +47,7 @@ oval = patches.Ellipse(
     width=0.8, height=0.3,  # axes lengths
     fill=False,
     edgecolor="red",
-    lw=2, label = "Probability you buy a Trouser"
+    lw=2, label = "Event you buy a Trouser"
 )
 ax.add_patch(oval)
 
